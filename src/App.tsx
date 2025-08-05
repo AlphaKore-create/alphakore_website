@@ -776,7 +776,7 @@ function App() {
               {/* Contact Button */}
 <div className="flex items-center justify-center">
   <a
-    href="#"
+    href="https://calendly.com/alpha-kore25/new-meeting?month=2025-08"
     data-cal-link="auto-mate-m0o1k7/alphakore"
     data-cal-namespace="alphakore"
     data-cal-config='{"layout":"month_view"}'
