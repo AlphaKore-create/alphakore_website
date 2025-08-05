@@ -131,7 +131,7 @@ function App() {
     const lines = [
       { text: "$ whoami", color: "text-green-400", delay: 50 },
       {
-        text: "I craft clean, scalable solutions across web, automation, and blockchain tech.",
+        text: "At ALPHA.KORE, we innovate at the intersection of software, automation, and blockchain.",
         color: "text-white",
         delay: 50,
       },
