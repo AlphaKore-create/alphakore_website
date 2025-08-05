@@ -129,14 +129,14 @@ function App() {
     const [showCursor, setShowCursor] = useState(true);
 
     const lines = [
-      { text: "$ whoami", color: "text-green-400", delay: 50 },
+      { text: "$ whoweare", color: "text-green-400", delay: 50 },
       {
         text: "At ALPHA.KORE, we innovate at the intersection of software, automation, and blockchain.",
         color: "text-white",
         delay: 50,
       },
       {
-        text: "From React applications to DeFi protocols, I bridge traditional development with emerging technologies.",
+        text: "Our mission: to turn next-gen ideas into scalable, secure, and seamless experiences.",
         color: "text-white",
         delay: 50,
       },
