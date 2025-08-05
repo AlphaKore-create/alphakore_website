@@ -774,16 +774,20 @@ function App() {
               </div>
 
               {/* Contact Button */}
-              <div className="flex items-center justify-center">
-                <a
-                  href="https://cal.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-8 py-4 bg-gradient-to-r from-pink-500 to-cyan-400 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-pink-500/25 transition-all duration-300"
-                >
-                  Contact Us
-                </a>
-              </div>
+              <!-- Cal element-click embed code begins -->
+<script type="text/javascript">
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+Cal("init", "alphakore", {origin:"https://app.cal.com"});
+
+  
+  // Important: Please add the following attributes to the element that should trigger the calendar to open upon clicking.
+  // `data-cal-link="auto-mate-m0o1k7/alphakore"`
+  // data-cal-namespace="alphakore"
+  // `data-cal-config='{"layout":"month_view"}'`
+
+  Cal.ns.alphakore("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+  <!-- Cal element-click embed code ends -->
             </div>
           </div>
         </section>
