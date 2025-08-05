@@ -1,0 +1,411 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+      "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .backdrop-blur-xs {
+    backdrop-filter: blur(2px);
+  }
+
+  .backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+  }
+
+  .backdrop-blur-md {
+    backdrop-filter: blur(12px);
+  }
+
+  .backdrop-blur-lg {
+    backdrop-filter: blur(16px);
+  }
+
+  .backdrop-blur-xl {
+    backdrop-filter: blur(24px);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #ec4899, #06b6d4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #db2777, #0891b2);
+}
+
+/* Smooth animations */
+* {
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+    backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Focus styles */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #ec4899;
+  outline-offset: 2px;
+}
+
+/* Selection styles */
+::selection {
+  background-color: rgba(236, 72, 153, 0.3);
+  color: white;
+}
+
+/* Responsive text sizing */
+@media (max-width: 640px) {
+  .text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .text-6xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+}
+
+/* Loading states */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Gradient animations */
+@keyframes gradient-x {
+  0%,
+  100% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-gradient-x {
+  animation: gradient-x 15s ease infinite;
+  background-size: 200% 200%;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Glow effect */
+.glow {
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.3);
+}
+
+.glow:hover {
+  box-shadow: 0 0 30px rgba(236, 72, 153, 0.5);
+}
+
+/* Ackee-style Background Animations */
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  33% {
+    transform: translateY(-20px) translateX(10px);
+  }
+  66% {
+    transform: translateY(10px) translateX(-10px);
+  }
+}
+
+@keyframes float-slower {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-30px) translateX(20px) scale(1.1);
+  }
+}
+
+@keyframes float-reverse {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(25px) translateX(-15px) rotate(180deg);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 20s ease-in-out infinite;
+}
+
+.animate-float-slower {
+  animation: float-slower 25s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 30s ease-in-out infinite;
+}
+
+/* Grid pattern */
+.grid-pattern {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.3) 1px, transparent 1px),
+    radial-gradient(rgba(0, 0, 0, 0.3) 1px, transparent 1px);
+  background-position: 0 0, 40px 40px;
+  background-size: 40px 40px;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Cards in features section black background and white text */
+.features-card {
+  background-color: black !important;
+  color: white !important;
+  border-color: black !important;
+}
+.features-card h3,
+.features-card p,
+.features-card span {
+  color: white !important;
+}
+
+/* Make alphakoreImage logo black using invert filter */
+.alphakore-logo-black {
+  filter: invert(0);
+  /* You can adjust brightness or contrast if needed */
+}
+
+/* Animated lines */
+@keyframes draw-line {
+  0% {
+    stroke-dasharray: 0 1000;
+  }
+  100% {
+    stroke-dasharray: 1000 0;
+  }
+}
+
+@keyframes draw-line-delayed {
+  0%,
+  30% {
+    stroke-dasharray: 0 1000;
+  }
+  100% {
+    stroke-dasharray: 1000 0;
+  }
+}
+
+@keyframes draw-line-slow {
+  0%,
+  60% {
+    stroke-dasharray: 0 1000;
+  }
+  100% {
+    stroke-dasharray: 1000 0;
+  }
+}
+
+.animate-draw-line {
+  animation: draw-line 8s ease-in-out infinite;
+}
+
+.animate-draw-line-delayed {
+  animation: draw-line-delayed 12s ease-in-out infinite;
+}
+
+.animate-draw-line-slow {
+  animation: draw-line-slow 15s ease-in-out infinite;
+}
+
+/* Floating particles */
+.particles-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: linear-gradient(45deg, #ec4899, #06b6d4);
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: particle-float 20s linear infinite;
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translateY(100vh) translateX(0px) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  90% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  100% {
+    transform: translateY(-100vh) translateX(100px) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Particle variations */
+.particle:nth-child(odd) {
+  background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+  animation-duration: 25s;
+}
+
+.particle:nth-child(3n) {
+  background: linear-gradient(45deg, #ec4899, #8b5cf6);
+  animation-duration: 18s;
+  width: 6px;
+  height: 6px;
+}
+
+.particle:nth-child(4n) {
+  background: linear-gradient(45deg, #06b6d4, #ec4899);
+  animation-duration: 22s;
+  width: 3px;
+  height: 3px;
+}
+
+.particle:nth-child(5n) {
+  background: radial-gradient(circle, #ec4899, transparent);
+  animation-duration: 30s;
+  width: 8px;
+  height: 8px;
+  opacity: 0.3;
+}
+
+/* Enhanced backdrop blur for better layering */
+.bg-white\/5 {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.bg-white\/10 {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Improved glass morphism effect */
+.backdrop-blur-md {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+}
+
+/* Subtle glow effects for interactive elements */
+.hover\:shadow-lg:hover {
+  box-shadow: 0 10px 25px -3px rgba(236, 72, 153, 0.1),
+    0 4px 6px -2px rgba(236, 72, 153, 0.05);
+}
+
+/* Enhanced border animations */
+@keyframes border-glow {
+  0%,
+  100% {
+    border-color: rgba(236, 72, 153, 0.3);
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.1);
+  }
+  50% {
+    border-color: rgba(6, 182, 212, 0.3);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.1);
+  }
+}
+
+.border-animated {
+  animation: border-glow 4s ease-in-out infinite;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Performance optimizations */
+.animate-float-slow,
+.animate-float-slower,
+.animate-float-reverse,
+.particle {
+  will-change: transform;
+}
+
+.backdrop-blur-md {
+  will-change: backdrop-filter;
+}
+.custom-bg {
+  position: relative;
+  z-index: 1;
+  background: #000000
+    url("https://www.transparenttextures.com/patterns/asfalt-dark.png") repeat;
+  background-size: contain;
+  text-align: center;
+  background-image: linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 0, 0.1) 1px, transparent 1px),
+    url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  background-size: 40px 80px, 40px 80px, contain;
+  overflow: hidden;
+}
