@@ -747,7 +747,7 @@ function App() {
                   {
                     icon: <Mail className="w-6 h-6" />,
                     title: "Email",
-                    content: "support@automate.com",
+                    content: "alpha.kore25@gmail.com",
                   },
                   {
                     icon: <MessageCircle className="w-6 h-6" />,
