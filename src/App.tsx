@@ -379,7 +379,7 @@ function App() {
         "A cutting-edge mobile app that simplifies daily tasks.",
       tags: ["Flutter", "Firebase"],
       image: petAiImage,
-      link: "https://pet-ai-909u.onrender.com/", // 🔗 Add website link
+      link: "https://pet-ai-909u.onrender.com", // 🔗 Add website link
     },
     {
       title: "Quant.Ai",
