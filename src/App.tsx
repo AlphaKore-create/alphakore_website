@@ -21,10 +21,10 @@ import {
 import alphakoreImage from "./assets/images/alphakore.png";
 import hitarthImage from "./assets/images/hitarth.jpg";
 import parthImage from "./assets/images/parth.jpg";
+import petAiImage from "./assets/images/PET.ai.png";
 import rajImage from "./assets/images/raj.jpg";
 import shlokImage from "./assets/images/shlok.jpg";
 import suhaniImage from "./assets/images/suhani.jpg";
-import petaiImage from "./assets/images/PET.ai.jpg";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -106,14 +106,14 @@ function App() {
       name: "Suhani",
       image: suhaniImage,
       linkedin: "https://linkedin.com/in/suhani",
-      instagram: "https://www.instagram.com/suhanipatel__16/",
+      instagram: "https://www.instagram.com/suhanipatel__16",
       portfolio: "https://suhani-portfolio.com",
     },
     {
       name: "Raj",
       image: rajImage,
       linkedin: "https://www.linkedin.com/in/raj-shah-a73926265/",
-      instagram: "https://www.instagram.com/rajshah103?igsh=MWs1emxyOGFkeTdscg==",
+      instagram: "https://www.instagram.com/rajshah103",
       portfolio: "https://raj-portfolio.com",
     },
   ];
@@ -381,7 +381,7 @@ function App() {
                   description:
                     "A cutting-edge mobile app that simplifies daily tasks.",
                   tags: ["Flutter", "Firebase"],
-                  image: "petaiImage",
+                  image: petAiImage,
                 },
                 {
                   title: "Quant.Ai",
