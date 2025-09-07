@@ -381,7 +381,7 @@ function App() {
                     "A cutting-edge mobile app that simplifies daily tasks.",
                   tags: ["Flutter", "Firebase"],
                   image:
-                    "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop",
+                    "./assets/images/PET.ai.png",
                 },
                 {
                   title: "Quant.Ai",
