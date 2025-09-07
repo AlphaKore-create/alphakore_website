@@ -85,9 +85,9 @@ function App() {
     {
       name: "Hitarth",
       image: hitarthImage,
-      linkedin: "https://linkedin.com/in/hitarth",
-      instagram: "https://instagram.com/hitarth",
-      portfolio: "https://hitarth-portfolio.com",
+      linkedin: "https://linkedin.c",
+      instagram: "https://www.instagram.com/htrivedi_?igsh=MWN3YzIya3I0NnZibg%3D%3D&utm_source=qr",
+      portfolio: "https://www.linkedin.com/in/hitarth-trivedi-ba1986300?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
     },
     {
       name: "Parth",
@@ -115,7 +115,7 @@ function App() {
       image: rajImage,
       linkedin: "https://www.linkedin.com/in/raj-shah-a73926265/",
       instagram: "https://www.instagram.com/rajshah103",
-      portfolio: "https://raj-portfolio.com",
+      portfolio: "https://github.com/Raj-Shah10",
     },
   ];
   interface TerminalLine {
