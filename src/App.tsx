@@ -21,7 +21,7 @@ import {
 import alphakoreImage from "./assets/images/alphakore.png";
 import hitarthImage from "./assets/images/hitarth.jpg";
 import parthImage from "./assets/images/parth.jpg";
-import petAiImage from "./assets/images/PET.ai.png";
+import synthImage from "./assets/images/Synth.png";
 import rajImage from "./assets/images/raj.jpg";
 import shlokImage from "./assets/images/shlok.jpg";
 import suhaniImage from "./assets/images/suhani.jpg";
@@ -373,8 +373,7 @@ function App() {
                   title: "Synth.Ai",
                   description: "An Automated Music Playlist maker",
                   tags: ["Spotify", "YT MUSIC", "MOOD"],
-                  image:
-                    "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop",
+                  image: synthImage,
                 },
                 {
                   title: "Pet.Ai",
