@@ -22,6 +22,7 @@ import alphakoreImage from "./assets/images/alphakore.png";
 import hitarthImage from "./assets/images/hitarth.jpg";
 import parthImage from "./assets/images/parth.jpg";
 import petAiImage from "./assets/images/PET.ai.png";
+import synthAiImage from "./assets/images/Synth.png";
 import rajImage from "./assets/images/raj.jpg";
 import shlokImage from "./assets/images/shlok.jpg";
 import suhaniImage from "./assets/images/suhani.jpg";
