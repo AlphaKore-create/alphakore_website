@@ -398,7 +398,7 @@ function App() {
        {
           title: "Firefly(In Progress)",
           description:
-            "A Fire detection Tool",
+            "This IoT-based fire detection accessory uses sensors to identify smoke or sudden temperature rises, instantly triggering an alarm. It also sends real-time alerts to the owner and responsible officials, ensuring quick response and minimizing fire hazards.",
           tags: ["Python", "Docker", "rasberypi"],
           image:
             "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop",
