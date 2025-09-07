@@ -389,8 +389,7 @@ function App() {
                   description:
                     "A developer tool enhancing productivity and collaboration.",
                   tags: ["TypeScript", "Docker", "Kubernetes"],
-                  image:
-                    "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop",
+                  image: synthAiImage,
                 },
               ].map((project, index) => (
                 <div
