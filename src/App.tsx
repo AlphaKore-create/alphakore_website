@@ -388,7 +388,7 @@ function App() {
                   description:
                     "A developer tool enhancing productivity and collaboration.",
                   tags: ["TypeScript", "Docker", "Kubernetes"],
-                  image: ,
+                  image: synthAiImage,
                 },
               ].map((project, index) => (
                 <div
