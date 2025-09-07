@@ -364,66 +364,69 @@ function App() {
               <h2 className="text-4xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-pink-500 to-cyan-400 bg-clip-text text-transparent">
                 Recent Works
               </h2>
-              <p className="text-xl text-gray-300">
-                Discover our latest automation projects
-              </p>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  title: "Synth.Ai",
-                  description: "An Automated Music Playlist maker",
-                  tags: ["Spotify", "YT MUSIC", "MOOD"],
-                  image: synthAiImage,
-                },
-                {
-                  title: "Pet.Ai",
-                  description:
-                    "A cutting-edge mobile app that simplifies daily tasks.",
-                  tags: ["Flutter", "Firebase"],
-                  image: petAiImage,
-                },
-                {
-                  title: "Quant.Ai",
-                  description:
-                    "A developer tool enhancing productivity and collaboration.",
-                  tags: ["TypeScript", "Docker", "Kubernetes"],
-                  image: synthAiImage,
-                },
-              ].map((project, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-2xl overflow-hidden border border-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(236,72,153,0.7)] hover:-translate-y-2 hover:shadow-pink-500/50"
-                >
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-black mb-2">
-                      {project.title}
-                    </h3>
-                    <p className="text-black mb-4">{project.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tags.map((tag, tagIndex) => (
-                        <span
-                          key={tagIndex}
-                          className="px-3 py-1 bg-black text-white rounded-full text-sm"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <button className="w-full py-2 border border-black text-black rounded-full hover:bg-black hover:text-white transition-all duration-300">
-                      View Project
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+  {[
+    {
+      title: "Synth.Ai",
+      description: "An Automated Music Playlist maker",
+      tags: ["Spotify", "YT MUSIC", "MOOD"],
+      image: synthAiImage,
+      link: "https://synth-ai.onrender.com/synth", // 🔗 Add website link
+    },
+    {
+      title: "Pet.Ai",
+      description:
+        "A cutting-edge mobile app that simplifies daily tasks.",
+      tags: ["Flutter", "Firebase"],
+      image: petAiImage,
+      link: "https://pet-ai-909u.onrender.com/", // 🔗 Add website link
+    },
+    {
+      title: "Quant.Ai",
+      description:
+        "A developer tool enhancing productivity and collaboration.",
+      tags: ["TypeScript", "Docker", "Kubernetes"],
+      image: synthAiImage,
+      link: "https://quant-ai.com", // 🔗 Add website link
+    },
+  ].map((project, index) => (
+    <div
+      key={index}
+      className="bg-white rounded-2xl overflow-hidden border border-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(236,72,153,0.7)] hover:-translate-y-2 hover:shadow-pink-500/50"
+    >
+      <img
+        src={project.image}
+        alt={project.title}
+        className="w-full h-48 object-cover"
+      />
+      <div className="p-6">
+        <h3 className="text-xl font-bold text-black mb-2">
+          {project.title}
+        </h3>
+        <p className="text-black mb-4">{project.description}</p>
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.tags.map((tag, tagIndex) => (
+            <span
+              key={tagIndex}
+              className="px-3 py-1 bg-black text-white rounded-full text-sm"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block text-center w-full py-2 border border-black text-black rounded-full hover:bg-black hover:text-white transition-all duration-300"
+        >
+          View Project
+        </a>
+      </div>
+    </div>
+  ))}
+</div>
+
 
         {/* Community Section */}
         <section id="community" className="py-20">
