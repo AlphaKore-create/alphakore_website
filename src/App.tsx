@@ -373,7 +373,7 @@ function App() {
       {[
         {
           title: "Synth.Ai",
-          description: "An Automated Music Playlist maker",
+          description: "This AI-powered tool analyzes your mood and automatically curates personalized playlists from Spotify. It ensures that the music you listen to matches your emotions and enhances your overall listening experience.",
           tags: ["Spotify", "YT MUSIC", "MOOD"],
           image: synthAiImage,
           link: "https://synth-ai.onrender.com/synth", // 🔗 added link
@@ -381,7 +381,7 @@ function App() {
         {
           title: "Pet.Ai",
           description:
-            "A cutting-edge mobile app that simplifies daily tasks.",
+            "This AI tool interprets pets’ behaviors by analyzing their videos, sounds, and actions. It helps pet owners better understand their pets’ emotions and needs, improving communication and care.",
           tags: ["Flutter", "Firebase"],
           image: petAiImage,
           link: "https://pet-ai-909u.onrender.com/", // 🔗 added link
@@ -389,7 +389,7 @@ function App() {
         {
           title: "Quant.Ai(In Progress)",
           description:
-            "A developer tool enhancing productivity and collaboration.",
+            "This AI-powered paper trading tool automates crypto trading using multiple AI agents. It allows users to practice strategies in real-time market conditions without financial risk, enhancing decision-making and trading skills.",
           tags: ["TypeScript", "Docker", "Kubernetes"],
           image:
             "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop",
