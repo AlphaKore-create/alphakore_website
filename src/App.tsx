@@ -105,14 +105,14 @@ function App() {
       name: "Suhani",
       image: suhaniImage,
       linkedin: "https://linkedin.com/in/suhani",
-      instagram: "https://www.instagram.com/suhanipatel__16",
+      instagram: "https://www.instagram.com/suhanipatel__16/",
       portfolio: "https://suhani-portfolio.com",
     },
     {
       name: "Raj",
       image: rajImage,
       linkedin: "https://www.linkedin.com/in/raj-shah-a73926265/",
-      instagram: "https://www.instagram.com/rajshah103",
+      instagram: "https://www.instagram.com/rajshah103?igsh=MWs1emxyOGFkeTdscg==",
       portfolio: "https://raj-portfolio.com",
     },
   ];
