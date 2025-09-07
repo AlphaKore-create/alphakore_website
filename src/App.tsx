@@ -24,6 +24,7 @@ import parthImage from "./assets/images/parth.jpg";
 import rajImage from "./assets/images/raj.jpg";
 import shlokImage from "./assets/images/shlok.jpg";
 import suhaniImage from "./assets/images/suhani.jpg";
+import petaiImage from "./assets/images/PET.ai.jpg";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -380,8 +381,7 @@ function App() {
                   description:
                     "A cutting-edge mobile app that simplifies daily tasks.",
                   tags: ["Flutter", "Firebase"],
-                  image:
-                    "./assets/images/PET.ai.png",
+                  image: petaiImage,
                 },
                 {
                   title: "Quant.Ai",
