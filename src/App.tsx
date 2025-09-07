@@ -387,10 +387,19 @@ function App() {
           link: "https://pet-ai-909u.onrender.com/", // 🔗 added link
         },
         {
-          title: "Quant.Ai",
+          title: "Quant.Ai(In Progress)",
           description:
             "A developer tool enhancing productivity and collaboration.",
           tags: ["TypeScript", "Docker", "Kubernetes"],
+          image:
+            "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop",
+          link: "https://quant-ai.com", // 🔗 added link
+        },
+       {
+          title: "Firefly(In Progress)",
+          description:
+            "A Fire detection Tool",
+          tags: ["Python", "Docker", "rasberypi"],
           image:
             "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop",
           link: "https://quant-ai.com", // 🔗 added link
