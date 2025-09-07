@@ -85,9 +85,9 @@ function App() {
     {
       name: "Hitarth",
       image: hitarthImage,
-      linkedin: "https://linkedin.c",
+      linkedin: "https://www.linkedin.com/in/hitarth-trivedi-ba1986300?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
       instagram: "https://www.instagram.com/htrivedi_?igsh=MWN3YzIya3I0NnZibg%3D%3D&utm_source=qr",
-      portfolio: "https://www.linkedin.com/in/hitarth-trivedi-ba1986300?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+      portfolio: "https://github.com/HitarthTrivedi",
     },
     {
       name: "Parth",
