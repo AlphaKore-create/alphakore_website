@@ -374,8 +374,7 @@ function App() {
                   title: "Synth.Ai",
                   description: "An Automated Music Playlist maker",
                   tags: ["Spotify", "YT MUSIC", "MOOD"],
-                  image:
-                    "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop",
+                  image: synthAiImage,
                 },
                 {
                   title: "Pet.Ai",
@@ -389,7 +388,7 @@ function App() {
                   description:
                     "A developer tool enhancing productivity and collaboration.",
                   tags: ["TypeScript", "Docker", "Kubernetes"],
-                  image: synthAiImage,
+                  image: ,
                 },
               ].map((project, index) => (
                 <div
