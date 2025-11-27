@@ -3,67 +3,20 @@
 @tailwind utilities;
 
 @layer base {
+  /* Global page background gradient (AK) - exact dusk to sunset */
   html {
     scroll-behavior: smooth;
   }
-
   body {
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-      "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-      "Helvetica Neue", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #05070b 0%, #05070b 18%, #101522 45%, #1e2432 70%, #f6a454 100%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #f9fafb; /* ak-text */
   }
-}
-
-@layer utilities {
-  .text-shadow {
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  .text-shadow-lg {
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-
-  .backdrop-blur-xs {
-    backdrop-filter: blur(2px);
-  }
-
-  .backdrop-blur-sm {
-    backdrop-filter: blur(4px);
-  }
-
-  .backdrop-blur-md {
-    backdrop-filter: blur(12px);
-  }
-
-  .backdrop-blur-lg {
-    backdrop-filter: blur(16px);
-  }
-
-  .backdrop-blur-xl {
-    backdrop-filter: blur(24px);
-  }
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.1);
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #ec4899, #06b6d4);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #db2777, #0891b2);
-}
-
+  /* Floating particles removed per AK design (no overlays). */
 /* Smooth animations */
 * {
   transition-property: color, background-color, border-color,
@@ -78,14 +31,14 @@ button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: 2px solid #ec4899;
+  outline: 2px solid #f97316;
   outline-offset: 2px;
 }
 
 /* Selection styles */
 ::selection {
-  background-color: rgba(236, 72, 153, 0.3);
-  color: white;
+  background-color: rgba(249, 115, 22, 0.28);
+  color: black;
 }
 
 /* Responsive text sizing */
@@ -113,38 +66,39 @@ select:focus-visible {
 }
 
 .animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-/* Gradient animations */
-@keyframes gradient-x {
-  0%,
-  100% {
-    transform: translateX(0%);
-  }
-  50% {
-    transform: translateX(100%);
-  }
-}
-
-.animate-gradient-x {
-  animation: gradient-x 15s ease infinite;
-  background-size: 200% 200%;
-}
-
-/* Floating animation */
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+  position: fixed;
+  inset: 0;
+  display: block;
+  /* ensure stars sit above the body background but below UI (root content is z-10) */
+  z-index: 5;
+  /* larger faint nebula + visible star dots (mix of sizes) */
+  background-image:
+    radial-gradient(1600px circle at 20% 10%, rgba(255,255,255,0.03), transparent 6%),
+    radial-gradient(1100px circle at 80% 70%, rgba(173,216,230,0.03), transparent 7%),
+    /* visible larger dot fallbacks */
+    radial-gradient(circle 4px at 8% 12%, rgba(255,255,255,0.96) 0%, transparent 70%),
+    radial-gradient(circle 3px at 18% 28%, rgba(173,216,230,0.92) 0%, transparent 70%),
+    radial-gradient(circle 4px at 32% 44%, rgba(255,255,255,0.95) 0%, transparent 70%),
+    radial-gradient(circle 3px at 48% 20%, rgba(255,255,255,0.92) 0%, transparent 70%),
+    radial-gradient(circle 5px at 62% 68%, rgba(173,216,230,0.92) 0%, transparent 70%),
+    radial-gradient(circle 3.5px at 78% 52%, rgba(255,255,255,0.9) 0%, transparent 70%),
+    radial-gradient(circle 3px at 88% 18%, rgba(255,255,255,0.85) 0%, transparent 70%);
+  box-shadow:
+    10vw 5vh 1px rgba(255,255,255,0.98),
+    30vw 20vh 1px rgba(255,255,255,0.92),
+    65vw 15vh 2px rgba(173,216,230,0.9),
+    80vw 40vh 2px rgba(255,255,255,0.88),
+    20vw 60vh 1px rgba(255,255,255,0.85),
+    50vw 75vh 2px rgba(173,216,230,0.85),
+    5vw 80vh 1px rgba(255,255,255,0.9),
+    12vw 10vh 1px rgba(173,216,230,0.86),
+    40vw 40vh 1px rgba(255,255,255,0.86),
+    90vw 10vh 1px rgba(255,255,255,0.82),
+    70vw 65vh 2px rgba(173,216,230,0.8),
+    25vw 30vh 1px rgba(255,255,255,0.8),
+    55vw 50vh 1px rgba(255,255,255,0.8),
+    45vw 85vh 2px rgba(173,216,230,0.75);
+  opacity: 0.7; /* increase visibility */
 }
 
 /* Glow effect */
@@ -203,19 +157,7 @@ select:focus-visible {
 }
 
 /* Grid pattern */
-.grid-pattern {
-  background-image: radial-gradient(rgba(0, 0, 0, 0.3) 1px, transparent 1px),
-    radial-gradient(rgba(0, 0, 0, 0.3) 1px, transparent 1px);
-  background-position: 0 0, 40px 40px;
-  background-size: 40px 40px;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 0;
-}
+/* Grid pattern removed per AK design (no overlays) */
 
 /* Cards in features section black background and white text */
 .features-card {
@@ -277,102 +219,26 @@ select:focus-visible {
   animation: draw-line-slow 15s ease-in-out infinite;
 }
 
-/* Floating particles */
-.particles-container {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
+/* Floating particles removed per AK design (no overlays). */
 
-.particle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: linear-gradient(45deg, #ec4899, #06b6d4);
-  border-radius: 50%;
-  opacity: 0.6;
-  animation: particle-float 20s linear infinite;
-}
-
-@keyframes particle-float {
-  0% {
-    transform: translateY(100vh) translateX(0px) scale(0);
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.6;
-    transform: scale(1);
-  }
-  90% {
-    opacity: 0.6;
-    transform: scale(1);
-  }
-  100% {
-    transform: translateY(-100vh) translateX(100px) scale(0);
-    opacity: 0;
-  }
-}
-
-/* Particle variations */
-.particle:nth-child(odd) {
-  background: linear-gradient(45deg, #8b5cf6, #06b6d4);
-  animation-duration: 25s;
-}
-
-.particle:nth-child(3n) {
-  background: linear-gradient(45deg, #ec4899, #8b5cf6);
-  animation-duration: 18s;
-  width: 6px;
-  height: 6px;
-}
-
-.particle:nth-child(4n) {
-  background: linear-gradient(45deg, #06b6d4, #ec4899);
-  animation-duration: 22s;
-  width: 3px;
-  height: 3px;
-}
-
-.particle:nth-child(5n) {
-  background: radial-gradient(circle, #ec4899, transparent);
-  animation-duration: 30s;
-  width: 8px;
-  height: 8px;
-  opacity: 0.3;
-}
-
-/* Enhanced backdrop blur for better layering */
-.bg-white\/5 {
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
-.bg-white\/10 {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Improved glass morphism effect */
-.backdrop-blur-md {
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-}
+/* Removed translucent white backgrounds and backdrop blur to avoid glassmorphism */
 
 /* Subtle glow effects for interactive elements */
 .hover\:shadow-lg:hover {
-  box-shadow: 0 10px 25px -3px rgba(236, 72, 153, 0.1),
-    0 4px 6px -2px rgba(236, 72, 153, 0.05);
+  box-shadow: 0 10px 25px -3px rgba(249, 115, 22, 0.08),
+    0 4px 6px -2px rgba(249, 115, 22, 0.04);
 }
 
 /* Enhanced border animations */
 @keyframes border-glow {
   0%,
   100% {
-    border-color: rgba(236, 72, 153, 0.3);
-    box-shadow: 0 0 20px rgba(236, 72, 153, 0.1);
+    border-color: rgba(249, 115, 22, 0.22);
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.08);
   }
   50% {
-    border-color: rgba(6, 182, 212, 0.3);
-    box-shadow: 0 0 20px rgba(6, 182, 212, 0.1);
+    border-color: rgba(34, 211, 238, 0.22);
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.06);
   }
 }
 
@@ -388,24 +254,177 @@ html {
 /* Performance optimizations */
 .animate-float-slow,
 .animate-float-slower,
-.animate-float-reverse,
-.particle {
+.animate-float-reverse {
   will-change: transform;
 }
 
-.backdrop-blur-md {
-  will-change: backdrop-filter;
+/* Galaxy / Starfield background layer */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.85; }
 }
-.custom-bg {
-  position: relative;
-  z-index: 1;
-  background: #000000
-    url("https://www.transparenttextures.com/patterns/asfalt-dark.png") repeat;
-  background-size: contain;
-  text-align: center;
-  background-image: linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 0, 0.1) 1px, transparent 1px),
-    url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
-  background-size: 40px 80px, 40px 80px, contain;
-  overflow: hidden;
+
+/* Subtle glow/pulse to make stars bloom briefly */
+@keyframes pulseGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 1px rgba(255,255,255,0.08));
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    /* bloom into a soft light */
+    filter: drop-shadow(0 0 18px rgba(255,230,190,0.18)) contrast(1.05);
+    transform: scale(1.08);
+    opacity: 1;
+  }
 }
+
+/* A fixed, non-interactive starfield using layered box-shadows and subtle animations */
+.galaxy-stars,
+.galaxy-stars::before,
+.galaxy-stars::after {
+  pointer-events: none;
+  z-index: 0; /* sits behind content */
+}
+
+/* --- Smaller version of your existing star system --- */
+
+.galaxy-stars {
+  position: fixed;
+  inset: 0;
+  display: block;
+  z-index: 5;
+  opacity: 0.6;
+  transform: translateZ(0);
+
+  /* same layout but star cores smaller */
+  background-image:
+    radial-gradient(900px circle at 20% 10%, rgba(255,255,255,0.02), transparent 20%),
+    radial-gradient(700px circle at 80% 70%, rgba(173,216,230,0.02), transparent 6%),
+
+    /* smaller fallback stars */
+    radial-gradient(circle 0.7px at 8% 12%, rgba(255,255,255,0.95) 0%, transparent 60%),
+    radial-gradient(circle 0.7px at 18% 28%, rgba(173,216,230,0.85) 0%, transparent 60%),
+    radial-gradient(circle 0.7px at 32% 44%, rgba(255,255,255,0.9) 0%, transparent 60%),
+    radial-gradient(circle 0.7px at 48% 20%, rgba(255,255,255,0.85) 0%, transparent 60%),
+    radial-gradient(circle 0.7px at 62% 68%, rgba(173,216,230,0.8) 0%, transparent 60%),
+    radial-gradient(circle 0.7px at 78% 52%, rgba(255,255,255,0.8) 0%, transparent 60%),
+    radial-gradient(circle 0.7px at 88% 18%, rgba(255,255,255,0.75) 0%, transparent 60%);
+
+  /* smaller box-shadow star points */
+  box-shadow:
+    10vw 5vh 0.8px rgba(255,255,255,0.9),
+    30vw 20vh 0.8px rgba(255,255,255,0.85),
+    65vw 15vh 1.2px rgba(173,216,230,0.8),
+    80vw 40vh 1.2px rgba(255,255,255,0.75),
+    20vw 60vh 0.8px rgba(255,255,255,0.6),
+    50vw 75vh 1.2px rgba(173,216,230,0.6),
+    5vw 80vh 0.8px rgba(255,255,255,0.7),
+    12vw 10vh 0.8px rgba(173,216,230,0.65),
+    40vw 40vh 0.8px rgba(255,255,255,0.7),
+    90vw 10vh 0.8px rgba(255,255,255,0.65),
+    70vw 65vh 1.2px rgba(173,216,230,0.6),
+    25vw 30vh 0.8px rgba(255,255,255,0.6),
+    55vw 50vh 0.8px rgba(255,255,255,0.6),
+    45vw 85vh 1.2px rgba(173,216,230,0.5);
+
+  /* softer light */
+  filter: drop-shadow(0 0 6px rgba(255,220,170,0.08)) blur(0.2px);
+
+  animation: twinkle 6s infinite ease-in-out, pulseGlow 8s infinite ease-in-out;
+}
+
+/* medium stars layer — shrink 3–5px → 1.5–2px */
+.galaxy-stars::before {
+  content: "";
+  display: block;
+  width: 1.5px;
+  height: 1.5px;
+  left: 0;
+  top: 0;
+  position: fixed;
+  opacity: 0.8;
+  mix-blend-mode: screen;
+
+  box-shadow:
+    5vw 4vh 1.2px rgba(255,255,255,0.95),
+    22vw 14vh 1.2px rgba(173,216,230,0.92),
+    44vw 22vh 1.2px rgba(255,255,255,0.9),
+    82vw 35vh 1.6px rgba(255,255,255,0.88),
+    18vw 62vh 1.2px rgba(173,216,230,0.86),
+    60vw 70vh 1.2px rgba(255,255,255,0.85),
+    35vw 5vh 1.2px rgba(173,216,230,0.82),
+    78vw 58vh 1.2px rgba(255,255,255,0.8),
+    2vw 8vh 1.2px rgba(255,255,255,0.9),
+    10vw 20vh 1.2px rgba(173,216,230,0.86);
+
+  filter: drop-shadow(0 0 6px rgba(255,220,160,0.1));
+  animation: twinkle 6.5s infinite ease-in-out, pulseGlow 9s infinite ease-in-out;
+}
+
+/* big glints layer — shrink 5–10px → 3px */
+.galaxy-stars::after {
+  content: "";
+  display: block;
+  width: 3px;
+  height: 3px;
+  left: 0;
+  top: 0;
+  position: fixed;
+  opacity: 0.9;
+  mix-blend-mode: screen;
+
+  box-shadow:
+    14vw 6vh 2px rgba(255,255,255,0.98),
+    26vw 28vh 2px rgba(173,216,230,0.95),
+    64vw 38vh 2px rgba(255,255,255,0.92),
+    76vw 12vh 2px rgba(255,255,255,0.9),
+    37vw 55vh 2px rgba(173,216,230,0.88),
+    48vw 78vh 2px rgba(255,255,255,0.88),
+    8vw 18vh 2px rgba(255,255,255,0.92),
+    22vw 46vh 2px rgba(173,216,230,0.9);
+
+  filter: drop-shadow(0 0 12px rgba(255,230,190,0.12)) blur(0.8px);
+  animation: twinkle 7s infinite ease-in-out, pulseGlow 10s infinite ease-in-out;
+}
+
+
+}
+
+/* Re-introduce card components with solid surfaces (no glassmorphism) */
+@layer components {
+  .card-solid {
+    @apply bg-ak-bg-mid border border-ak-border text-ak-text rounded-xl shadow-lg;
+  }
+  .card-solid-soft {
+    @apply bg-ak-bg-top border border-ak-border text-ak-text rounded-xl shadow;
+  }
+}
+/* --- STRONG CINEMATIC SUNRISE GLOW --- */
+.dawn-horizon-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4; /* below stars, above gradient */
+
+  background:
+    radial-gradient(
+      ellipse 140% 55% at 50% 100%,
+      rgba(255, 172, 84, 0.95) 0%,       /* BLINDING sun glow */
+      rgba(255, 162, 60, 0.75) 20%,      /* strong rising fire */
+      rgba(255, 150, 50, 0.45) 35%,      /* extended sunrise light */
+      rgba(255, 138, 40, 0.22) 50%,      /* soft upward haze */
+      rgba(255, 120, 30, 0.10) 65%,      /* fading */
+      transparent 80%                    /* smooth fade into night */
+    ),
+
+    /* optional warm atmosphere tint lifting up */
+    linear-gradient(
+      to top,
+      rgba(255, 140, 60, 0.18) 0%,
+      rgba(255, 140, 60, 0.10) 20%,
+      rgba(255, 140, 60, 0.04) 40%,
+      transparent 60%
+    );
+}
+

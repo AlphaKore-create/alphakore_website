@@ -23,9 +23,14 @@ import hitarthImage from "./assets/images/hitarth.jpg";
 import parthImage from "./assets/images/parth.jpg";
 import petAiImage from "./assets/images/petai.png";
 import synthAiImage from "./assets/images/Synth.png";
+import lazycookImage from "./assets/images/lazycook.png";
 import rajImage from "./assets/images/raj.jpg";
 import shlokImage from "./assets/images/shlok.jpg";
 import suhaniImage from "./assets/images/suhani.jpg";
+import harshImage from "./assets/images/harsh.jpg";
+import manavImage from "./assets/images/manav.jpg";
+import pranavImage from "./assets/images/pranav.jpg";
+import jiyaImage from "./assets/images/jiya.jpg";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -117,6 +122,34 @@ function App() {
       instagram: "https://www.instagram.com/rajshah103",
       portfolio: "https://github.com/Raj-Shah10",
     },
+    {
+      name: "Harsh",
+      image: harshImage,
+      linkedin: "http://www.linkedin.com/in/harsh8818198",
+      instagram: "https://www.instagram.com/0_8818198?igsh=MTE3NW5md2h0NG9zOQ%3D%3D&utm_source=qr",
+      portfolio: "https://harsh8818198portfolio.netlify.app/",
+    },
+    {
+      name: "Manav",
+      image: manavImage,
+      linkedin: "http://www.linkedin.com/in/manav-patel-4930132a6",
+      instagram: "",
+      portfolio: "",
+    },
+    {
+      name: "Pranav",
+      image: pranavImage,
+      linkedin: "https://www.linkedin.com/in/pranav-gohil-68934035a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      instagram: "https://www.instagram.com/pranav_gohil_1308?igsh=ZmpmdWkwdm02NWlh",
+      portfolio: "",
+    },
+    { 
+      name: "Jiya", 
+      image: jiyaImage,
+      linkedin: "https://www.linkedin.com/in/jiya-bhadresa-a569a1387?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      instagram: "",
+      portfolio: "",
+    },
   ];
   interface TerminalLine {
     text: string;
@@ -131,7 +164,7 @@ function App() {
     const [showCursor, setShowCursor] = useState(true);
 
     const lines = [
-      { text: "$ whoweare", color: "text-green-400", delay: 50 },
+      { text: "$ whoweare", color: "text-ak-accent-cyan", delay: 50 },
       {
         text: "At ALPHA.KORE, we innovate at the intersection of software, automation, and blockchain.",
         color: "text-white",
@@ -142,7 +175,7 @@ function App() {
         color: "text-white",
         delay: 50,
       },
-      { text: "$ ", color: "text-green-400", delay: 0, isCursor: true },
+      { text: "$ ", color: "text-ak-accent-cyan", delay: 0, isCursor: true },
     ];
 
     useEffect(() => {
@@ -193,15 +226,15 @@ function App() {
     }, []);
 
     return (
-      <div className="bg-gray-900 rounded-lg border border-gray-700 shadow-2xl max-w-4xl w-full">
+      <div className="card-solid rounded-lg border border-ak-border shadow-2xl max-w-4xl w-full">
         {/* Terminal Header */}
-        <div className="flex items-center justify-between bg-gray-800 px-4 py-3 rounded-t-lg border-b border-gray-700">
+        <div className="flex items-center justify-between bg-ak-surface-soft px-4 py-3 rounded-t-lg border-b border-ak-border">
           <div className="flex items-center space-x-2">
             <div className="w-3 h-3 bg-red-500 rounded-full"></div>
             <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
             <div className="w-3 h-3 bg-green-500 rounded-full"></div>
           </div>
-          <div className="text-gray-400 text-sm font-mono">~/portfolio</div>
+          <div className="text-ak-text-muted text-sm font-mono">~/portfolio</div>
           <div className="w-16"></div> {/* Spacer for centering */}
         </div>
 
@@ -245,17 +278,19 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-black overflow-x-hidden relative">
-      <div className="grid-pattern"></div>
-      <div className="gradient-overlay"></div>
-      {/* Removed animated background for solid white background */}
-      {/* Background and floating shapes removed */}
+     <div className="min-h-screen bg-ak-body bg-fixed text-ak-text overflow-x-hidden relative">
+       {/* glowing dawn over the orange gradient */}
+  <div className="dawn-horizon-glow" aria-hidden="true" />
+    {/* stars over gradient, behind all UI */}
+    <div className="galaxy-stars" aria-hidden="true" />
 
-      {/* Header */}
-      <header className="fixed top-0 left-0 w-full bg-black/80 backdrop-blur-md z-50 border-b border-purple-500/20">
+    {/* your actual site content */}
+    <div className="relative z-10">
+        {/* Header */}
+        <header className="fixed top-0 inset-x-0 bg-transparent shadow-md z-20 border-b border-ak-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <div className="text-2xl font-bold text-white tracking-wider flex items-center">
+            <div className="text-2xl font-bold text-ak-text tracking-wider flex items-center">
               <img
                 src={alphakoreImage}
                 alt="AlphaKore"
@@ -277,13 +312,13 @@ function App() {
                   onClick={() => scrollToSection(section)}
                   className={`capitalize transition-colors duration-300 relative ${
                     activeSection === section
-                      ? "text-pink-500"
-                      : "text-white hover:text-pink-500"
+                      ? "text-ak-primary border-b-2 border-ak-primary"
+                      : "text-ak-text-muted hover:text-ak-text"
                   }`}
                 >
                   {section === "recent-works" ? "Recent Works" : section}
                   {activeSection === section && (
-                    <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-pink-500 to-cyan-400"></div>
+                    <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-ak-primary to-ak-primary-soft"></div>
                   )}
                 </button>
               ))}
@@ -291,7 +326,7 @@ function App() {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden text-white"
+              className="md:hidden text-ak-text"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -301,7 +336,7 @@ function App() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden bg-black/95 backdrop-blur-md border-t border-purple-500/20">
+          <div className="md:hidden bg-transparent border-t border-ak-border">
             <div className="px-4 py-4 space-y-4">
               {[
                 "home",
@@ -314,7 +349,7 @@ function App() {
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
-                  className="block w-full text-left capitalize text-white hover:text-pink-500 transition-colors duration-300"
+                  className="block w-full text-left capitalize text-ak-text hover:text-ak-primary transition-colors duration-300"
                 >
                   {section === "recent-works" ? "Recent Works" : section}
                 </button>
@@ -325,21 +360,20 @@ function App() {
       </header>
 
       {/* Content with relative positioning to appear above background */}
-      <div className="relative z-10">
         {/* Hero Section */}
         <section id="home" className="pt-20 min-h-screen flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-8">
-                <div className="inline-block px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full text-sm font-medium">
+                <div className="inline-block px-6 py-3 bg-gradient-to-r from-ak-primary to-ak-primary-soft rounded-full text-sm font-medium">
                   Innovate & Create
                 </div>
                 <TerminalWelcome />
                 <div className="flex flex-col sm:flex-row gap-4">
                   <button
-                    onClick={() => scrollToSection("features")}
-                    className="px-8 py-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-pink-500/25 transition-all duration-300"
-                  >
+                      onClick={() => scrollToSection("features")}
+                      className="px-8 py-3 bg-gradient-to-r from-ak-primary to-ak-primary-soft text-white rounded-full font-semibold shadow-lg hover:brightness-110 hover:-translate-y-0.5 transition-transform duration-300"
+                    >
                     Learn More
                   </button>
                 </div>
@@ -349,7 +383,7 @@ function App() {
                   <img
                     src={alphakoreImage}
                     alt="AlphaKore"
-                    className="w-full h-full object-contain rounded-3xl"
+                    className="w-full h-full object-contain invert rounded-3xl"
                   />
                 </div>
               </div>
@@ -358,13 +392,13 @@ function App() {
         </section>
 
         {/* Recent Works Section */}
-       <section id="recent-works" className="py-20">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="recent-works" className="py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="text-center mb-16">
-      <h2 className="text-4xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-pink-500 to-cyan-400 bg-clip-text text-transparent">
+      <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-white">
         Recent Works
       </h2>
-      <p className="text-xl text-gray-300">
+      <p className="text-xl text-ak-text-muted">
         Discover our latest automation projects
       </p>
     </div>
@@ -372,8 +406,15 @@ function App() {
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       {[
         {
+          title: <span>LAZY<span className="text-red-500">Z</span>COOK</span>,
+          description: <span> <span>LAZY<span className="text-red-500">Z</span>COOK</span> is an autonomous multi-agent AI assistant that runs in your terminal. Using Gemini 2.5 Flash with a four-agent architecturefor maximum output with minimum human intervention.</span>,
+          tags: ["AI Agents", "Terminal", "Automation", "Gemini 2.5", "Dev Tools"],
+          image: lazycookImage,
+          link: "https://lazycook.vercel.app/",
+        },
+        {
           title: "Synth.Ai",
-          description: "This AI-powered tool analyzes your mood and automatically curates personalized playlists from Spotify. It ensures that the music you listen to matches your emotions and enhances your overall listening experience.",
+          description: "This AI-powered tool analyzes your mood and automatically curates personalized playlists from Spotify. It ensures that the music you listen to matches your emotions and enhances your overall listening experience.",
           tags: ["Spotify", "YT MUSIC", "MOOD"],
           image: synthAiImage,
           link: "https://synth-ai.onrender.com/synth", // 🔗 added link
@@ -381,7 +422,7 @@ function App() {
         {
           title: "Pet.Ai",
           description:
-            "This AI tool interprets pets’ behaviors by analyzing their videos, sounds, and actions. It helps pet owners better understand their pets’ emotions and needs, improving communication and care.",
+            "This AI tool interprets pets’ behaviors by analyzing their videos, sounds, and actions. It helps pet owners better understand their pets’ emotions and needs, improving communication and care.",
           tags: ["Flutter", "Firebase"],
           image: petAiImage,
           link: "https://pet-ai-909u.onrender.com/", // 🔗 added link
@@ -389,7 +430,7 @@ function App() {
         {
           title: "Quant.Ai(In Progress)",
           description:
-            "This AI-powered paper trading tool automates crypto trading using multiple AI agents. It allows users to practice strategies in real-time market conditions without financial risk, enhancing decision-making and trading skills.",
+            "This AI-powered paper trading tool automates crypto trading using multiple AI agents. It allows users to practice strategies in real-time market conditions without financial risk, enhancing decision-making and trading skills.",
           tags: ["TypeScript", "Docker", "Kubernetes"],
           image:
             "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop",
@@ -407,7 +448,7 @@ function App() {
       ].map((project, index) => (
         <div
           key={index}
-          className="bg-white rounded-2xl overflow-hidden border border-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(236,72,153,0.7)] hover:-translate-y-2 hover:shadow-pink-500/50"
+          className="rounded-2xl overflow-hidden border border-ak-border bg-ak-bg-mid transition-all duration-300 hover:shadow-[0_0_20px_rgba(249,115,22,0.15)] hover:-translate-y-2"
         >
           <img
             src={project.image}
@@ -415,15 +456,15 @@ function App() {
             className="w-full h-48 object-cover"
           />
           <div className="p-6">
-            <h3 className="text-xl font-bold text-black mb-2">
+            <h3 className="text-xl font-bold text-ak-text mb-2">
               {project.title}
             </h3>
-            <p className="text-black mb-4">{project.description}</p>
+            <p className="text-ak-text-muted mb-4">{project.description}</p>
             <div className="flex flex-wrap gap-2 mb-4">
               {project.tags.map((tag, tagIndex) => (
                 <span
                   key={tagIndex}
-                  className="px-3 py-1 bg-black text-white rounded-full text-sm"
+                  className="px-3 py-1 bg-ak-surface-soft text-ak-text rounded-full text-sm"
                 >
                   {tag}
                 </span>
@@ -435,13 +476,13 @@ function App() {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-center w-full py-2 border border-black text-black rounded-full hover:bg-black hover:text-white transition-all duration-300"
+                className="block text-center w-full py-2 border border-ak-border text-ak-text rounded-full hover:bg-ak-surface hover:text-ak-text transition-all duration-300"
               >
                 View Project
               </a>
             ) : (
               <button
-                className="w-full py-2 border border-black text-black rounded-full opacity-60 cursor-not-allowed"
+                className="w-full py-2 border border-ak-border text-ak-text-muted rounded-full opacity-60 cursor-not-allowed"
                 disabled
               >
                 Coming Soon
@@ -466,19 +507,19 @@ function App() {
               ].map((stat, index) => (
                 <div
                   key={index}
-                  className="bg-black rounded-2xl p-8 text-center border border-black"
+                  className="bg-ak-bg-mid rounded-2xl p-8 text-center border border-ak-border"
                 >
-                  <h3 className="text-4xl font-bold text-white mb-2">
+                  <h3 className="text-4xl font-bold text-ak-text mb-2">
                     {stat.number}
                   </h3>
-                  <p className="text-white">{stat.label}</p>
+                  <p className="text-ak-text-muted">{stat.label}</p>
                 </div>
               ))}
             </div>
 
             {/* Forums */}
             <div className="mb-16">
-              <h2 className="text-3xl font-bold text-center mb-12 text-black">
+              <h2 className="text-3xl font-bold text-center mb-12 text-white">
                 Popular Discussions
               </h2>
               <div className="grid md:grid-cols-3 gap-8">
@@ -500,14 +541,14 @@ function App() {
                   },
                 ].map((forum, index) => (
                   <div
-                    key={index}
-                    className="bg-black rounded-2xl p-6 border border-black hover:border-white transition-all duration-300"
-                  >
-                    <h3 className="text-xl font-bold mb-2 text-white">
+                      key={index}
+                      className="p-6 rounded-2xl border border-ak-border bg-ak-bg-mid hover:border-ak-primary/20 transition-all duration-300"
+                    >
+                    <h3 className="text-xl font-bold mb-2 text-ak-text">
                       {forum.title}
                     </h3>
-                    <p className="text-white mb-4">{forum.description}</p>
-                    <span className="inline-block px-3 py-1 bg-white border border-white rounded-full text-black text-sm">
+                    <p className="text-ak-text-muted mb-4">{forum.description}</p>
+                    <span className="inline-block px-3 py-1 bg-ak-surface-soft border border-ak-border rounded-full text-ak-text text-sm">
                       {forum.badge}
                     </span>
                   </div>
@@ -517,22 +558,22 @@ function App() {
 
             {/* Team Section */}
             <div>
-              <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-pink-500 to-cyan-400 bg-clip-text text-transparent">
+              <h2 className="text-3xl font-bold text-center mb-12 text-white">
                 Founder Team
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
                 {teamMembers.map((member, index) => (
                   <div
                     key={index}
-                    className="bg-black rounded-2xl p-6 text-center border border-black hover:border-white transition-all duration-300 hover:transform hover:-translate-y-2"
+                    className="bg-ak-surface rounded-2xl p-6 text-center border border-ak-border hover:border-ak-primary/20 transition-all duration-300 hover:transform hover:-translate-y-2"
                   >
                     <img
                       src={member.image}
                       alt={member.name}
-                      className="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-white shadow-lg cursor-pointer"
+                      className="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-ak-border shadow-lg cursor-pointer"
                       onClick={() => openPhoto(member.image)}
                     />
-                    <h3 className="text-xl font-bold mb-4 text-white">
+                    <h3 className="text-xl font-bold mb-4 text-ak-text">
                       {member.name}
                     </h3>
                     <div className="flex justify-center space-x-4 mb-4">
@@ -540,7 +581,7 @@ function App() {
                         href={member.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-white hover:text-gray-400 transition-colors"
+                        className="text-ak-text hover:text-ak-text-muted transition-colors"
                       >
                         <Linkedin size={20} />
                       </a>
@@ -548,7 +589,7 @@ function App() {
                         href={member.instagram}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-white hover:text-gray-400 transition-colors"
+                        className="text-ak-text hover:text-ak-text-muted transition-colors"
                       >
                         <Instagram size={20} />
                       </a>
@@ -557,7 +598,7 @@ function App() {
                       href={member.portfolio}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-black rounded-lg text-sm font-medium border border-white hover:shadow-lg transition-all duration-300 text-white"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-ak-surface rounded-lg text-sm font-medium border border-ak-border hover:shadow-lg transition-all duration-300 text-ak-text"
                     >
                       Portfolio <ExternalLink size={14} />
                     </a>
@@ -572,10 +613,10 @@ function App() {
         <section id="features" className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-pink-500 to-cyan-400 bg-clip-text text-transparent">
+              <h2 className="text-5xl md:text-6xl font-extrabold mb-6 text-white">
                 Powerful Features
               </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              <p className="text-xl text-ak-text-muted max-w-3xl mx-auto">
                 Discover what makes AutoMate the perfect choice for your
                 automation needs
               </p>
@@ -638,15 +679,17 @@ function App() {
               ].map((feature, index) => (
                 <div
                   key={index}
-                  className="bg-black rounded-2xl p-8 border border-black transition-all duration-300 hover:transform hover:-translate-y-2"
+                  className="bg-ak-surface rounded-2xl p-8 border border-ak-border transition-all duration-300 hover:transform hover:-translate-y-2"
                 >
-                  <div className="w-16 h-16 bg-gradient-to-br from-pink-500/20 to-purple-600/20 rounded-full flex items-center justify-center mb-6 text-pink-500">
-                    {feature.icon}
+                  <div className="w-16 h-16 bg-gradient-to-br from-ak-primary/20 to-ak-primary-soft/20 rounded-full flex items-center justify-center mb-6 text-ak-primary">
+                    <div className="w-8 h-8 flex items-center justify-center text-ak-primary">
+                      {feature.icon}
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-4 text-white">
+                  <h3 className="text-xl font-bold mb-4 text-ak-text">
                     {feature.title}
                   </h3>
-                  <p className="text-white mb-6 leading-relaxed">
+                  <p className="text-ak-text-muted mb-6 leading-relaxed">
                     {feature.description}
                   </p>
                   <ul className="space-y-3">
@@ -655,8 +698,8 @@ function App() {
                         key={itemIndex}
                         className="flex items-center gap-3 text-sm"
                       >
-                        <CheckCircle className="w-4 h-4 text-cyan-400 flex-shrink-0" />
-                        <span className="text-white">{item}</span>
+                        <CheckCircle className="w-4 h-4 text-ak-accent-cyan flex-shrink-0" />
+                        <span className="text-ak-text">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -670,10 +713,10 @@ function App() {
         <section id="services" className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h1 className="text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-pink-500 to-cyan-400 bg-clip-text text-transparent">
+              <h1 className="text-5xl md:text-6xl font-extrabold mb-6 text-white">
                 Our Services
               </h1>
-              <p className="text-xl text-gray-300">
+              <p className="text-xl text-ak-text-muted">
                 Discover how AutoMate can transform your workflow
               </p>
             </div>
@@ -726,16 +769,18 @@ function App() {
               ].map((service, index) => (
                 <div
                   key={index}
-                  className="bg-black rounded-2xl p-8 text-center border border-black transition-all duration-300 hover:transform hover:-translate-y-2 flex flex-col justify-between"
+                  className="bg-ak-surface rounded-2xl p-8 text-center border border-ak-border transition-all duration-300 hover:transform hover:-translate-y-2 flex flex-col justify-between"
                 >
                   <div>
-                    <div className="w-16 h-16 bg-gradient-to-br from-pink-500/20 to-purple-600/20 rounded-full flex items-center justify-center mx-auto mb-6 text-pink-500">
-                      {service.icon}
+                    <div className="w-16 h-16 bg-gradient-to-br from-ak-primary/20 to-ak-primary-soft/20 rounded-full flex items-center justify-center mx-auto mb-6 text-ak-primary">
+                      <div className="w-8 h-8 flex items-center justify-center text-ak-primary">
+                        {service.icon}
+                      </div>
                     </div>
-                    <h3 className="text-xl font-bold mb-4 text-white">
+                    <h3 className="text-xl font-bold mb-4 text-ak-text">
                       {service.title}
                     </h3>
-                    <p className="text-white mb-6 leading-relaxed">
+                    <p className="text-ak-text-muted mb-6 leading-relaxed">
                       {service.description}
                     </p>
                     <ul className="space-y-3 mb-6 text-left">
@@ -744,13 +789,13 @@ function App() {
                           key={featureIndex}
                           className="flex items-center gap-3 text-sm"
                         >
-                          <CheckCircle className="w-4 h-4 text-cyan-400 flex-shrink-0" />
-                          <span className="text-white">{feature}</span>
+                          <CheckCircle className="w-4 h-4 text-ak-accent-cyan flex-shrink-0" />
+                          <span className="text-ak-text">{feature}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
-                  <button className="w-full py-3 bg-transparent border border-pink-500 text-white rounded-full font-semibold hover:bg-gradient-to-r hover:from-pink-500 hover:to-cyan-400 hover:border-transparent transition-all duration-300">
+                  <button className="w-full py-3 bg-transparent border border-ak-primary text-ak-primary rounded-full font-semibold hover:bg-ak-primary hover:text-white transition-all duration-300">
                     Learn More
                   </button>
                 </div>
@@ -763,7 +808,7 @@ function App() {
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-pink-500 to-cyan-400 bg-clip-text text-transparent">
+              <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-white">
                 Contact Us
               </h2>
             </div>
@@ -790,13 +835,13 @@ function App() {
                 ].map((contact, index) => (
                   <div
                     key={index}
-                    className="bg-black rounded-2xl p-6 border border-black transition-all duration-300 hover:transform hover:-translate-y-2"
+                    className="bg-ak-surface rounded-2xl p-6 border border-ak-border transition-all duration-300 hover:transform hover:-translate-y-2"
                   >
-                    <div className="text-pink-500 mb-4">{contact.icon}</div>
-                    <h3 className="text-xl font-bold mb-2 text-white">
+                    <div className="text-ak-primary mb-4">{contact.icon}</div>
+                    <h3 className="text-xl font-bold mb-2 text-ak-text">
                       {contact.title}
                     </h3>
-                    <p className="text-cyan-400">{contact.content}</p>
+                    <p className="text-ak-accent-cyan">{contact.content}</p>
                   </div>
                 ))}
               </div>
@@ -808,7 +853,7 @@ function App() {
     data-cal-link="auto-mate-m0o1k7/alphakore"
     data-cal-namespace="alphakore"
     data-cal-config='{"layout":"month_view"}'
-    className="px-8 py-4 bg-gradient-to-r from-pink-500 to-cyan-400 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-pink-500/25 transition-all duration-300"
+    className="px-8 py-4 bg-gradient-to-r from-ak-primary to-ak-primary-soft text-white rounded-full font-semibold hover:shadow-lg transition-all duration-300"
   >
     Contact Us
   </a>
@@ -818,11 +863,11 @@ function App() {
         </section>
 
         {/* Footer */}
-        <footer className="bg-white border-t border-black py-8">
+        <footer className="bg-ak-surface-soft border-t border-ak-border py-8">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p className="text-black">
+            <p className="text-ak-text-muted">
               Designed with{" "}
-              <Heart className="inline w-4 h-4 text-red-500 mx-1" /> by PARTH
+              <Heart className="inline w-4 h-4 text-ak-primary mx-1" /> by PARTH
               SONI
             </p>
           </div>
