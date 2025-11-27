@@ -147,7 +147,7 @@ function App() {
       name: "Jiya", 
       image: jiyaImage,
       linkedin: "https://www.linkedin.com/in/jiya-bhadresa-a569a1387?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-      instagram: "",
+      instagram: "https://www.instagram.com/jiyabhadresa?igsh=MWU1M2dja2EyNWdlNA==",
       portfolio: "",
     },
   ];
