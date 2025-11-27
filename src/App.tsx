@@ -151,97 +151,106 @@ function App() {
       portfolio: "",
     },
   ];
-  interface TerminalLine {
-    text: string;
-    color: string;
-    delay: number;
-    isCursor?: boolean;
-  }
-  const TerminalWelcome = () => {
-    const [displayedLines, setDisplayedLines] = useState<TerminalLine[]>([]);
-    const [currentLineIndex, setCurrentLineIndex] = useState(0);
-    const [currentCharIndex, setCurrentCharIndex] = useState(0);
-    const [showCursor, setShowCursor] = useState(true);
+  interface TerminalLine { 
+  text: string;
+  color: string;
+  delay: number;
+  isCursor?: boolean;
+}
 
-    const lines = [
-      { text: "$ whoweare", color: "text-ak-accent-cyan", delay: 50 },
-      {
-        text: "At ALPHA.KORE, we innovate at the intersection of software, automation, and blockchain.",
-        color: "text-white",
-        delay: 50,
-      },
-      {
-        text: "Our mission: to turn next-gen ideas into scalable, secure, and seamless experiences.",
-        color: "text-white",
-        delay: 50,
-      },
-      { text: "$ ", color: "text-ak-accent-cyan", delay: 0, isCursor: true },
-    ];
+const TerminalWelcome = () => {
+  const [displayedLines, setDisplayedLines] = useState<TerminalLine[]>([]);
+  const [currentLineIndex, setCurrentLineIndex] = useState(0);
+  const [currentCharIndex, setCurrentCharIndex] = useState(0);
+  const [showCursor, setShowCursor] = useState(true);
 
-    useEffect(() => {
-      if (currentLineIndex < lines.length - 1) {
-        // Don't type the cursor line
-        const currentLine = lines[currentLineIndex];
+  const lines = [
+    { text: "$ whoweare", color: "text-ak-accent-cyan", delay: 50 },
+    {
+      text: "At ALPHA.KORE, we innovate at the intersection of software, automation, and blockchain.",
+      color: "text-white",
+      delay: 50,
+    },
+    {
+      text: "Our mission: to turn next-gen ideas into scalable, secure, and seamless experiences.",
+      color: "text-white",
+      delay: 50,
+    },
+    { text: "$ ", color: "text-ak-accent-cyan", delay: 0, isCursor: true },
+  ];
 
-        if (currentCharIndex < currentLine.text.length) {
-          const timer = setTimeout(() => {
-            setDisplayedLines((prev) => {
-              const newLines = [...prev];
-              if (!newLines[currentLineIndex]) {
-                newLines[currentLineIndex] = { ...currentLine, text: "" };
-              }
-              newLines[currentLineIndex] = {
-                ...currentLine,
-                text: currentLine.text.substring(0, currentCharIndex + 1),
-              };
-              return newLines;
-            });
-            setCurrentCharIndex(currentCharIndex + 1);
-          }, currentLine.delay);
+  // Typing Logic
+  useEffect(() => {
+    if (currentLineIndex < lines.length - 1) {
+      const currentLine = lines[currentLineIndex];
 
-          return () => clearTimeout(timer);
-        } else {
-          // Line complete, move to next line after a pause
-          const timer = setTimeout(() => {
-            setCurrentLineIndex(currentLineIndex + 1);
-            setCurrentCharIndex(0);
-          }, 800);
+      if (currentCharIndex < currentLine.text.length) {
+        const timer = setTimeout(() => {
+          setDisplayedLines((prev) => {
+            const newLines = [...prev];
+            if (!newLines[currentLineIndex]) {
+              newLines[currentLineIndex] = { ...currentLine, text: "" };
+            }
+            newLines[currentLineIndex] = {
+              ...currentLine,
+              text: currentLine.text.substring(0, currentCharIndex + 1),
+            };
+            return newLines;
+          });
+          setCurrentCharIndex(currentCharIndex + 1);
+        }, currentLine.delay);
 
-          return () => clearTimeout(timer);
-        }
-      } else if (currentLineIndex === lines.length - 1) {
-        // Add the final cursor line
-        setDisplayedLines((prev) => [...prev, lines[currentLineIndex]]);
-        setCurrentLineIndex(currentLineIndex + 1);
+        return () => clearTimeout(timer);
+      } else {
+        const timer = setTimeout(() => {
+          setCurrentLineIndex(currentLineIndex + 1);
+          setCurrentCharIndex(0);
+        }, 800);
+
+        return () => clearTimeout(timer);
       }
-    }, [currentLineIndex, currentCharIndex]);
+    } else if (currentLineIndex === lines.length - 1) {
+      setDisplayedLines((prev) => [...prev, lines[currentLineIndex]]);
+      setCurrentLineIndex(currentLineIndex + 1);
+    }
+  }, [currentLineIndex, currentCharIndex]);
 
-    // Cursor blinking effect
-    useEffect(() => {
-      const cursorTimer = setInterval(() => {
-        setShowCursor((prev) => !prev);
-      }, 500);
+  // Cursor blinking
+  useEffect(() => {
+    const cursorTimer = setInterval(() => {
+      setShowCursor((prev) => !prev);
+    }, 500);
+    return () => clearInterval(cursorTimer);
+  }, []);
 
-      return () => clearInterval(cursorTimer);
-    }, []);
+  return (
+    <div className="card-solid rounded-lg border border-ak-border shadow-2xl max-w-4xl w-full">
 
-    return (
-      <div className="card-solid rounded-lg border border-ak-border shadow-2xl max-w-4xl w-full">
-        {/* Terminal Header */}
-        <div className="flex items-center justify-between bg-ak-surface-soft px-4 py-3 rounded-t-lg border-b border-ak-border">
-          <div className="flex items-center space-x-2">
-            <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-            <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-          </div>
-          <div className="text-ak-text-muted text-sm font-mono">~/portfolio</div>
-          <div className="w-16"></div> {/* Spacer for centering */}
+      {/* Terminal Header */}
+      <div className="flex items-center justify-between bg-ak-surface-soft px-4 py-3 rounded-t-lg border-b border-ak-border">
+        <div className="flex items-center space-x-2">
+          <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+          <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+          <div className="w-3 h-3 bg-green-500 rounded-full"></div>
         </div>
+        <div className="text-ak-text-muted text-sm font-mono">~/portfolio</div>
+        <div className="w-16"></div>
+      </div>
 
-        {/* Terminal Content */}
-        <div className="p-6 font-mono text-sm leading-relaxed">
+      {/* Terminal Content — STATIC HEIGHT */}
+      <div
+        className="
+          p-6 font-mono text-sm leading-relaxed
+          h-56              /* Fixed height */
+          w-96
+          overflow-hidden   /* Prevent card expansion */
+          flex flex-col
+          justify-end       /* Stick lines at bottom like a real terminal */
+        "
+      >
+        <div className="space-y-2">
           {displayedLines.map((line, index) => (
-            <div key={index} className="mb-2">
+            <div key={index} className="mb-1">
               {line.isCursor ? (
                 <span
                   className={`${line.color} ${
@@ -249,9 +258,7 @@ function App() {
                   }`}
                 >
                   {line.text}
-                  <span
-                    className={`${showCursor ? "opacity-100" : "opacity-0"}`}
-                  >
+                  <span className={showCursor ? "opacity-100" : "opacity-0"}>
                     _
                   </span>
                 </span>
@@ -274,8 +281,9 @@ function App() {
           ))}
         </div>
       </div>
-    );
-  };
+    </div>
+  );
+};
 
   return (
      <div className="min-h-screen bg-ak-body bg-fixed text-ak-text overflow-x-hidden relative">
@@ -406,8 +414,8 @@ function App() {
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       {[
         {
-          title: <span>LAZY<span className="text-red-500">Z</span>COOK</span>,
-          description: <span> <span>LAZY<span className="text-red-500">Z</span>COOK</span> is an autonomous multi-agent AI assistant that runs in your terminal. Using Gemini 2.5 Flash with a four-agent architecturefor maximum output with minimum human intervention.</span>,
+          title: <span>LA<span className="text-red-500">Z</span>YCOOK</span>,
+          description: <span> <span>LA<span className="text-red-500">Z</span>YCOOK</span> is an autonomous multi-agent AI assistant that runs in your terminal. Using Gemini 2.5 Flash with a four-agent architecturefor maximum output with minimum human intervention.</span>,
           tags: ["AI Agents", "Terminal", "Automation", "Gemini 2.5", "Dev Tools"],
           image: lazycookImage,
           link: "https://lazycook.vercel.app/",
