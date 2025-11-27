@@ -86,20 +86,21 @@ const TerminalWelcome = memo(() => {
         <div className="space-y-2">
           {displayedLines.map((line, index) => (
             <div key={index} className="mb-1">
-              {line.isCursor ? (
-                <span className={line.color}>
-                  {line.text}
-                  <span className="animate-pulse">_</span>
-                </span>
-              ) : (
-                <div className={line.color}>
-                  {line.text}
-                  {index === currentLineIndex &&
-                    currentCharIndex === line.text.length && (
-                      <span className="ml-1 animate-pulse">_</span>
-                    )}
-                </div>
-              )}
+           {line.isCursor ? (
+  <span className={line.color}>
+    {line.text}
+    <span className="terminal-cursor">_</span>
+  </span>
+) : (
+  <div className={line.color}>
+    {line.text}
+    {index === currentLineIndex &&
+      currentCharIndex === line.text.length && (
+        <span className="ml-1 terminal-cursor">_</span>
+      )}
+  </div>
+)}
+
             </div>
           ))}
         </div>

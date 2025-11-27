@@ -115,7 +115,20 @@ function App() {
       {/* your actual site content */}
       <div className="relative z-10">
         {/* Header */}
-        <header className="fixed top-0 inset-x-0 bg-transparent shadow-md z-20 border-b border-ak-border">
+       <header
+  className="
+    fixed top-0 inset-x-0
+    bg-transparent
+    backdrop-blur-md
+    backdrop-saturate-200         /* adds magnification */
+    shadow-md
+    z-20
+    border-b border-ak-border
+                  
+   
+  "
+>
+
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
               <div className="text-2xl font-bold text-ak-text tracking-wider flex items-center">
@@ -158,7 +171,7 @@ function App() {
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
-            <div className="md:hidden bg-transparent border-t border-ak-border">
+            <div className="md:hidden bg-transparent backdrop-blur-md border-t border-ak-border">
               <div className="px-4 py-4 space-y-4">
                 {SCROLL_SECTIONS.map((section) => (
                   <button
